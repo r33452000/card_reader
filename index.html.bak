@@ -6,7 +6,7 @@
     <script type="text/javascript" src="instascan.min.js"></script>
   </head>
   <body>
-  	¯º¤@­Ó~
+  	ç¬‘ä¸€å€‹~
     <video id="preview"></video>
     <script type="text/javascript">
       let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
@@ -23,6 +23,6 @@
         console.error(e);
       });
     </script>
-    µ²§ô
+    çµæŸ
   </body>
 </html>
