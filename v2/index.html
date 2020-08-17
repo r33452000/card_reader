@@ -42,12 +42,13 @@
   <p class="error">
     {{ errorMessage }}
   </p>
-  <div v-if="validationSuccess" class="validation-success">
-        ÅçÃÒ¦¨¥\
+  <div v-show="validationSuccess" >
+        é©—è­‰æˆåŠŸ
   </div>
-  <div v-if="validationFailure" class="validation-failure">
-        ÅçÃÒ¥¢±Ñ
+  <div v-show="validationFailure" >
+        é©—è­‰å¤±æ•—
       </div>
+      
   <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit" >
       <div v-if="validationSuccess" class="validation-success">
         This is a URL
