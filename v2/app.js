@@ -64,6 +64,9 @@ var vm = new Vue({
 
       // some more delay, so users have time to read the message
       await this.timeout(500)
+      var file = "pink";
+      var audio = new Audio('https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + file + '_word.mp3');
+      audio.play();
 
       this.turnCameraOn()
     },
