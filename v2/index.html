@@ -45,6 +45,9 @@
   <div v-if="validationSuccess" class="validation-success">
         驗證成功
   </div>
+  <div v-if="validationFailure" class="validation-failure">
+        驗證失敗
+      </div>
   <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit" >
       <div v-if="validationSuccess" class="validation-success">
         This is a URL
