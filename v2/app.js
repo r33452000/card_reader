@@ -52,7 +52,7 @@ var vm = new Vue({
 
       // some more delay, so users have time to read the message      
       
-      playAudio("pink");
+      //playAudio("pink");
       await this.timeout(800);
 
       this.turnCameraOn();
