@@ -79,6 +79,11 @@ var vm = new Vue({
     	 //var audio = new Audio('https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + i_key + '_word.mp3');
     	vm.record +=1;
     }
+    
+
+window.onload = function () {
+	alert('讀取到正確條碼會發出聲音！');
+	};
 
        
 
