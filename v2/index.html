@@ -52,7 +52,7 @@ function hidebox(box){
   <p>
     	 Last result: <b>{{ result }}, previous:{{lastContent}}</b>
   </p>
-  <p>record:{{record}}, async:{{enter}}</p>
+  <p>record:{{record}}</p>
 
   <p class="error">
     {{ errorMessage }}
@@ -67,7 +67,7 @@ function hidebox(box){
   <source src="https://sound-wall.s3-eu-west-1.amazonaws.com/en_pink_word.mp3" type="audio/mp3" id="music1" muted>
   </audio>
       
-  <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit" style="max-width:100%;max-height:100%;" >
+  <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit" style="max-width:100vmin;max-height:100vmin;" >
       <div v-if="validationSuccess" class="validation-success">
         This is a URL
       </div>
