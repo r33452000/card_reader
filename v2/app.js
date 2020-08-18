@@ -5,6 +5,7 @@ var vm = new Vue({
     return {
       decodedContent: '',
       record:0,
+      enter:0,
       errorMessage: '',
       isValid: undefined,
       camera: 'auto',
@@ -72,6 +73,9 @@ var vm = new Vue({
       lv_audio.play();
 
       this.turnCameraOn();
+    },
+    enterAsync(){
+    	this.enter = this.enter + 1;
     },
     turnCameraOn () {
       this.camera = 'auto'
