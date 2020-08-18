@@ -43,19 +43,22 @@ var vm = new Vue({
     async onDecode (content) {
     	
     	this.result = content;
-    	//和上次內容一樣
-    	if(this.lastContent == content){    		
-    			return false;    		
+    	
+    	var lv_min = new Date().getMinutes();
+    	
+    	//同一分鐘不重覆呼叫
+    	if(this.lastContent == (lv_min + content)){    		
+    			return false;//和上次內容一樣
     	}else{
     		//與上次不同，記錄本次
-    		this.lastContent = content;
+    		this.lastContent = lv_min + content;
     	}
       
       this.turnCameraOff();      
 
       // pretend it's taking really long
       //await this.timeout(200)
-      //this.isValid = content.startsWith('http')
+      this.isValid = content.startsWith('http')
 		  
       // some more delay, so users have time to read the message
       //await this.timeout(800)
@@ -63,10 +66,6 @@ var vm = new Vue({
 
       this.turnCameraOn();
       
-      //10秒鐘後可以重複
-      await this.timeout(10000);
-      this.lastContent = "";
-      //this.noContinue = false;
     },
 
     turnCameraOn () {
@@ -76,6 +75,7 @@ var vm = new Vue({
     turnCameraOff () {
       this.camera = 'off'
     },
+    
 
     timeout (ms) {
       return new Promise(resolve => {
