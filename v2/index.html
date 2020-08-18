@@ -33,15 +33,21 @@
 .validation-failure {
   color: red;
 }
+.fullscreen{
+	position:absolute;width:100%;height:100%;text-align:center;padding:50px;color:white;background:gray;z-index:5;font-weight:bold;
+	}
 </style>
 <script language="Javascript">
 <!--
 document.write("<b>Last updated: " + document.lastModified + "</b>");
+function hidebox(box){
+	$(box).hide();
+	}
 //-->
 </script>
   </head>
   <body>
-  	
+  	<div class="fullscreen" onclick="hidebox(this)">點我開始</div>
   	<div id="app">
   <p>
     	 Last result: <b>{{ result }}</b>
@@ -57,7 +63,7 @@ document.write("<b>Last updated: " + document.lastModified + "</b>");
   <div v-show="validationFailure" >
         驗證失敗
       </div>
-     <audio controls id="player" muted>
+     <audio controls id="player" >
   <source src="https://sound-wall.s3-eu-west-1.amazonaws.com/en_pink_word.mp3" type="audio/mp3" id="music1" muted>
   </audio>
       
