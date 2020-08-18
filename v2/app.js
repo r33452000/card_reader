@@ -34,7 +34,6 @@ var vm = new Vue({
     },
 
     async onInit(promise) {
-    	async onInit (promise) {
       try {
         await promise
       } catch (error) {
@@ -51,8 +50,8 @@ var vm = new Vue({
         } else if (error.name === 'StreamApiNotSupportedError') {
           this.error = "ERROR: Stream API is not supported in this browser"
         }
-        this.resetValidationState()
-      }
+        this.resetValidationState();
+      }      
       
 
     },    
