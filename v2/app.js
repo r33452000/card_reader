@@ -29,6 +29,7 @@ var vm = new Vue({
   methods: {
     onDecode(content) {
       this.decodedContent = content
+      this.record = this.record + 1;
     },
 
     onInit(promise) {
@@ -64,7 +65,7 @@ var vm = new Vue({
       this.isValid = content.startsWith('http');
 
       // some more delay, so users have time to read the message
-      this.record = this.record + 1;
+      
       await this.timeout(800);
       var lv_key = "pink";
       var lv_audio = new Audio('https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + lv_key + '_word.mp3');
