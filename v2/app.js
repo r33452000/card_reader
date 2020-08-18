@@ -27,8 +27,7 @@ var vm = new Vue({
     }
   },
 
-  methods: { 
-      
+  methods: {       
 
     onInit (promise) {
       promise
@@ -42,13 +41,13 @@ var vm = new Vue({
     
     async onDecode (content) {
       this.result = content;
-      this.turnCameraOff()
+      this.turnCameraOff();
       enterAsync();
       this.decodedContent = content;
       this.record = this.record + 1;
 
       // pretend it's taking really long
-      //await this.timeout(3000)
+      await this.timeout(200)
       this.isValid = content.startsWith('http');
 
       // some more delay, so users have time to read the message      
@@ -80,4 +79,4 @@ var vm = new Vue({
     }
 
   }
-})
+});
