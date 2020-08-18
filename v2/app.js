@@ -5,7 +5,8 @@ var vm = new Vue({
     return {
       decodedContent: '',
       record:0,
-      enter:0,
+      noContinue:true,
+      lastContent:'',
       errorMessage: '',
       isValid: undefined,
       camera: 'auto',
@@ -40,8 +41,20 @@ var vm = new Vue({
     },
 
     async onDecode (content) {
-      this.result = content
-      this.turnCameraOff()
+    	
+    	this.result = content;
+    	//和上次內容一樣
+    	if(this.lastContent == content){
+    		if(this.noContinue==false){
+    			return false;
+    		}
+    	}else{
+    		//與上次不同，記錄本次
+    		this.lastContent = content;
+    	}
+      
+      this.turnCameraOff();
+      
 
       // pretend it's taking really long
       //await this.timeout(200)
@@ -53,6 +66,9 @@ var vm = new Vue({
 
       this.turnCameraOn();
       
+      //3秒鐘後可以重複
+      await this.timeout(3000);
+      this.noContinue = false;
     },
 
     turnCameraOn () {
