@@ -44,14 +44,15 @@ var vm = new Vue({
       this.turnCameraOff()
 
       // pretend it's taking really long
-      await this.timeout(200)
-      this.isValid = content.startsWith('http')
+      //await this.timeout(200)
+      //this.isValid = content.startsWith('http')
 		  
       // some more delay, so users have time to read the message
       //await this.timeout(800)
+      await playAudio("red");
 
       this.turnCameraOn();
-      playAudio("red");
+      
     },
 
     turnCameraOn () {
