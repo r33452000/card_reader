@@ -77,7 +77,7 @@ var vm = new Vue({
     	$("#player")[0].load();
       $("#player")[0].play();
     	 //var audio = new Audio('https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + i_key + '_word.mp3');
-    	 
+    	vm.record +=1;
     }
 
        
