@@ -4,6 +4,7 @@ var vm = new Vue({
   data() {
     return {
       decodedContent: '',
+      record:0,
       errorMessage: '',
       isValid: undefined,
       camera: 'auto',
@@ -60,10 +61,11 @@ var vm = new Vue({
 
       // pretend it's taking really long
       //await this.timeout(3000)
-      this.isValid = content.startsWith('http')
+      this.isValid = content.startsWith('http');
 
       // some more delay, so users have time to read the message
-      await this.timeout(500)
+      this.record = this.record + 1;
+      await this.timeout(800);
       var lv_key = "pink";
       var lv_audio = new Audio('https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + lv_key + '_word.mp3');
       lv_audio.play();
