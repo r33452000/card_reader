@@ -34,12 +34,16 @@
   color: red;
 }
 </style>
-
+<script language="Javascript">
+<!--
+document.write("<b>Last updated: " + document.lastModified + "</b>");
+//-->
+</script>
   </head>
   <body>
   	<div id="app">
   <p>
-    v2.7 Last result: <b>{{ result }}</b>
+    	 Last result: <b>{{ result }}</b>
   </p>
   <p>record:{{record}}, async:{{enter}}</p>
 
@@ -70,6 +74,6 @@
       </div>
     </qrcode-stream>
 </div>
-<script src="app.js?time=7"></script>
+<script src="app.js?time=8"></script>
    </body>
 </html>
