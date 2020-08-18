@@ -76,13 +76,15 @@ var vm = new Vue({
     	$("#music1").attr("src",lv_path);
     	$("#player")[0].load();
       $("#player")[0].play();
+      $("#player")[0].pause();
+      $("#player")[0].play();
     	 //var audio = new Audio('https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + i_key + '_word.mp3');
     	vm.record +=1;
     }
     
 
 window.onload = function () {
-	alert('讀取到正確條碼會發出聲音！');
+	//alert('讀取到正確條碼會發出聲音！');
 	};
 
        

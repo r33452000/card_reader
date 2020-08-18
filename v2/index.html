@@ -41,6 +41,7 @@ document.write("<b>Last updated: " + document.lastModified + "</b>");
 </script>
   </head>
   <body>
+  	
   	<div id="app">
   <p>
     	 Last result: <b>{{ result }}</b>
@@ -56,8 +57,8 @@ document.write("<b>Last updated: " + document.lastModified + "</b>");
   <div v-show="validationFailure" >
         驗證失敗
       </div>
-     <audio controls id="player" preload="auto">
-  <source src="https://sound-wall.s3-eu-west-1.amazonaws.com/en_pink_word.mp3" type="audio/mp3" id="music1">
+     <audio controls id="player" muted>
+  <source src="https://sound-wall.s3-eu-west-1.amazonaws.com/en_pink_word.mp3" type="audio/mp3" id="music1" muted>
   </audio>
       
   <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit" >
@@ -74,6 +75,6 @@ document.write("<b>Last updated: " + document.lastModified + "</b>");
       </div>
     </qrcode-stream>
 </div>
-<script src="app.js?time=8"></script>
+<script src="app.js?time=9"></script>
    </body>
 </html>
