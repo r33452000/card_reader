@@ -33,7 +33,7 @@ var vm = new Vue({
       this.record = this.record + 1;
     },
 
-    onInit(promise) {
+    async onInit(promise) {
       promise.then(() => {
         console.log('Successfully initilized! Ready for scanning now!')
       })
