@@ -51,7 +51,7 @@ var vm = new Vue({
       //await this.timeout(800)
 
       this.turnCameraOn()
-      playAudio("pink");
+      playAudio("red");
     },
 
     turnCameraOn () {
@@ -63,9 +63,11 @@ var vm = new Vue({
     },
     playAudio(i_key){
     	var lv_path = 'https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + i_key + '_word.mp3';
+    	$("#music1").attr("src",lv_path);
+    	$("#player").load();
+      $("#player").play();
     	 //var audio = new Audio('https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + i_key + '_word.mp3');
-    	 $("#audio1").src = lv_path;
-      $("#audio1").play();
+    	 
     },
 
     timeout (ms) {

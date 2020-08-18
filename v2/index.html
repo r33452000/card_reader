@@ -39,7 +39,7 @@
   <body>
   	<div id="app">
   <p>
-    v2.4 Last result: <b>{{ result }}</b>
+    v2.5 Last result: <b>{{ result }}</b>
   </p>
   <p>record:{{record}}, async:{{enter}}</p>
 
@@ -52,8 +52,8 @@
   <div v-show="validationFailure" >
         驗證失敗
       </div>
-     <audio controls>
-  <source src="" type="audio/mp3" id="audio1">
+     <audio controls id="player">
+  <source src="https://sound-wall.s3-eu-west-1.amazonaws.com/en_pink_word.mp3" type="audio/mp3" id="music1">
   </audio>
       
   <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit" >
@@ -70,6 +70,6 @@
       </div>
     </qrcode-stream>
 </div>
-<script src="app.js?time=4"></script>
+<script src="app.js?time=5"></script>
    </body>
 </html>
