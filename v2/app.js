@@ -51,7 +51,7 @@ var vm = new Vue({
         } else if (error.name === 'StreamApiNotSupportedError') {
           this.error = "ERROR: Stream API is not supported in this browser"
         }
-      }
+      }.then(this.resetValidationState)
 
     },    
 
