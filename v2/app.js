@@ -34,24 +34,25 @@ var vm = new Vue({
     },
 
     async onInit(promise) {
-      promise.then(() => {
-        console.log('Successfully initilized! Ready for scanning now!')
-      })
-        .catch(error => {
+    	async onInit (promise) {
+      try {
+        await promise
+      } catch (error) {
         if (error.name === 'NotAllowedError') {
-          this.errorMessage = 'Hey! I need access to your camera'
+          this.error = "ERROR: you need to grant camera access permisson"
         } else if (error.name === 'NotFoundError') {
-          this.errorMessage = 'Do you even have a camera on your device?'
+          this.error = "ERROR: no camera on this device"
         } else if (error.name === 'NotSupportedError') {
-          this.errorMessage = 'Seems like this page is served in non-secure context (HTTPS, localhost or file://)'
+          this.error = "ERROR: secure context required (HTTPS, localhost)"
         } else if (error.name === 'NotReadableError') {
-          this.errorMessage = 'Couldn\'t access your camera. Is it already in use?'
+          this.error = "ERROR: is the camera already in use?"
         } else if (error.name === 'OverconstrainedError') {
-          this.errorMessage = 'Constraints don\'t match any installed camera. Did you asked for the front camera although there is none?'
-        } else {
-          this.errorMessage = 'UNKNOWN ERROR: ' + error.message
+          this.error = "ERROR: installed cameras are not suitable"
+        } else if (error.name === 'StreamApiNotSupportedError') {
+          this.error = "ERROR: Stream API is not supported in this browser"
         }
-      })
+      }
+
     },    
 
     resetValidationState () {
