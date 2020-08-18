@@ -51,7 +51,7 @@ var vm = new Vue({
         } else {
           this.errorMessage = 'UNKNOWN ERROR: ' + error.message
         }
-      }).then(this.resetValidationState)
+      })
     },    
 
     resetValidationState () {
@@ -60,6 +60,7 @@ var vm = new Vue({
     async onDecode (content) {
       this.result = content
       this.turnCameraOff()
+      enterAsync();
 
       // pretend it's taking really long
       //await this.timeout(3000)
