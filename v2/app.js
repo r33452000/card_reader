@@ -50,7 +50,7 @@ var vm = new Vue({
       // some more delay, so users have time to read the message
       //await this.timeout(800)
 
-      this.turnCameraOn()
+      this.turnCameraOn();
       playAudio("red");
     },
 
@@ -61,14 +61,6 @@ var vm = new Vue({
     turnCameraOff () {
       this.camera = 'off'
     },
-    playAudio(i_key){
-    	var lv_path = 'https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + i_key + '_word.mp3';
-    	$("#music1").attr("src",lv_path);
-    	$("#player").load();
-      $("#player").play();
-    	 //var audio = new Audio('https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + i_key + '_word.mp3');
-    	 
-    },
 
     timeout (ms) {
       return new Promise(resolve => {
@@ -77,6 +69,16 @@ var vm = new Vue({
     }
   }
 });
+
+
+  function  playAudio(i_key){
+    	var lv_path = 'https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + i_key + '_word.mp3';
+    	$("#music1").attr("src",lv_path);
+    	$("#player")[0].load();
+      $("#player")[0].play();
+    	 //var audio = new Audio('https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + i_key + '_word.mp3');
+    	 
+    }
 
        
 
