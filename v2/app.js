@@ -46,11 +46,12 @@ var vm = new Vue({
       // pretend it's taking really long
       await this.timeout(200)
       this.isValid = content.startsWith('http')
-		  playAudio("pink");
+		  
       // some more delay, so users have time to read the message
-      await this.timeout(800)
+      //await this.timeout(800)
 
       this.turnCameraOn()
+      playAudio("pink");
     },
 
     turnCameraOn () {
@@ -61,8 +62,10 @@ var vm = new Vue({
       this.camera = 'off'
     },
     playAudio(i_key){
-    	 var audio = new Audio('https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + i_key + '_word.mp3');
-      audio.play();
+    	var lv_path = 'https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + i_key + '_word.mp3';
+    	 //var audio = new Audio('https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + i_key + '_word.mp3');
+    	 $("#audio1").src = lv_path;
+      $("#audio1").play();
     },
 
     timeout (ms) {
