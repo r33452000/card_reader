@@ -44,11 +44,11 @@ var vm = new Vue({
       this.turnCameraOff()
 
       // pretend it's taking really long
-      await this.timeout(3000)
+      await this.timeout(200)
       this.isValid = content.startsWith('http')
-
+		  playAudio("pink");
       // some more delay, so users have time to read the message
-      await this.timeout(2000)
+      await this.timeout(800)
 
       this.turnCameraOn()
     },
@@ -59,6 +59,10 @@ var vm = new Vue({
 
     turnCameraOff () {
       this.camera = 'off'
+    },
+    playAudio(i_key){
+    	 var audio = new Audio('https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + i_key + '_word.mp3');
+      audio.play();
     },
 
     timeout (ms) {
