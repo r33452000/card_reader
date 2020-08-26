@@ -70,7 +70,7 @@ var vm = new Vue({
       	
       	if(this.isValid == true){
       		this.errorMessage = "play https://sound-wall.s3-eu-west-1.amazonaws.com/en_"+lv_item.t+"_word.mp3";
-      		await playAudio("https://sound-wall.s3-eu-west-1.amazonaws.com/en_"+lv_item.t+"_word.mp3");
+      		await playAudio("https://sound-wall.s3-eu-west-1.amazonaws.com/en_"+lv_item.t.toLowerCase()+"_word.mp3");
       	}
       }catch(e){
       	this.errorMessage = e.toString();
