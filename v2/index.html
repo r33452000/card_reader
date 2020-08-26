@@ -49,7 +49,7 @@ function hidebox(box){
   <body>
   <!--聲音在手機是不會啟動的，必需和網頁先有互動才可以，但android會記憶頭一次互動而延用-->
   
-  <button>載入聲音</button>
+  <button onclick="$('#player')[0].play();alert($('music1').attr("src"));">載入聲音</button>
   	<div id="app">
   <p>
     	 Last result: <b>{{ result }}, previous:{{lastContent}}</b>

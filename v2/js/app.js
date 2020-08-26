@@ -121,7 +121,8 @@ var vm = new Vue({
       $("#player")[0].play();
       $("#player")[0].pause();
       $("#player")[0].play();
-    	 //var audio = new Audio('https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + i_key + '_word.mp3');
+    	 var audio = new Audio('https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + i_key + '_word.mp3');
+    	 audio.play();
     	vm.record +=1;
     }
     
