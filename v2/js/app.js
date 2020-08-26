@@ -55,7 +55,7 @@ var vm = new Vue({
     		this.lastContent = lv_min + content;
     	}
       
-      this.turnCameraOff();      
+      this.turnCameraOff();
 
       // pretend it's taking really long
       //await this.timeout(200)
@@ -67,7 +67,8 @@ var vm = new Vue({
       	lv_item =  JSON.parse(content);
       	this.isValid = (lv_item.s=="l");// content.startsWith('http')
       }catch(e){
-      	console.log(e);     	
+      	this.errorMessage = e.toString();
+      	console.log(e);
       }
       
 		  
@@ -84,7 +85,8 @@ var vm = new Vue({
     },
 
     turnCameraOn () {
-      this.camera = 'auto'
+    	this.isValid = undefined;
+      this.camera = 'auto';
     },
 
     turnCameraOff () {
