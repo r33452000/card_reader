@@ -66,6 +66,7 @@ var vm = new Vue({
       try{
       	lv_item =  JSON.parse(content);
       	this.isValid = (lv_item.s=="l");// content.startsWith('http')
+      	this.errorMessage = "vaild = "+this.isValid;
       }catch(e){
       	this.errorMessage = e.toString();
       	console.log(e);
