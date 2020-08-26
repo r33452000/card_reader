@@ -59,9 +59,17 @@ var vm = new Vue({
 
       // pretend it's taking really long
       //await this.timeout(200)
-      var lv_item = JSON.parse(content);
+
+      var lv_item = null;
       //content={t:'ant',s:'l',k:0}
-      this.isValid = (lv_item.s=="l");// content.startsWith('http')
+      this.isValid = false;// content.startsWith('http')
+      try{
+      	lv_item =  JSON.parse(content);
+      	this.isValid = (lv_item.s=="l");// content.startsWith('http')
+      }catch(e){
+      	console.log(e);     	
+      }
+      
 		  
       // some more delay, so users have time to read the message
       //await this.timeout(800)
