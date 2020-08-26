@@ -4,124 +4,115 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="jquery.qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/card_source.js"></script>
+        	<script src="js/qrcode.js"></script>
 
     <script>
         $(function () {
-        	$("#qrpink").qrcode({width: 64,height: 64,text: "{set:'lingumi',class:'color',text:'pink'}"});
         	
-        	/*
-            if (window.opener != null) {
-                if (window.opener.vm != undefined) {
-                    var lv_Checked = window.opener.vm.GetChecked();
-                    var lv_Node = "";
-                    var lv_TopStart = 26;
-                    
-                    for (var i = 0; i < lv_Checked.length; i++) {
-                        //if (i == 0) {
-                        //    lv_Node += "<div style='margin-top:0px;padding-top:0px;'>";
-                        //}else{
-                            lv_Node += "<div>";
-                        //}
-                        
-                        lv_Node += "&nbsp;<span Class='Barcode'>*"+lv_Checked[i].BUID+"*</span>.<br/>";
-                        lv_Node += "<span Class='label' style='top:"+lv_TopStart+"px;'>"+lv_Checked[i].BUID+"</span></div>";
-                        lv_TopStart += 42;//label°ª¬°42px
+        	/*var qrcode = new QRCode('qrpink', {
+    text: "{t:'Butterfly',s:'l',k:4}",
+    width: 80,
+    height: 80,
+    colorDark: '#000000',
+    colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.H
+});*/
+        	//$("#qrpink").qrcode({width: 70,height: 70,text: "{set:'lingumi',class:'color',text:'pink'}"});
 
-                        //lv_Node = lv_Node + "<div><span class='Title'>" + lv_Checked[i].title + "</span><br/>" + "<span class='BUID'>*" +
-                        //    lv_Checked[i].BUID + "*</span></div>";
-                        ////3­Ӵ«¦䋊                        //if (i !== 0 && i % 3 == 0) {
-                        //    lv_Node = lv_Node + "<br/>";
-                        //}
-                    }
-                    $("body").html(lv_Node);
-                    //wb.execwb(7, 1);
-                    window.print();
-                }
-            }
-            
-            */
         });
     </script>
     <style>
-    	#cardlist{
+    	#card_list{
     		text-align:center;
     		list-style-type:none;
-    		font-family: Source Sans Pro Black;
-    	}
-    	
-    	#cardlist>li{
+    		font-family: Calibri;
+    		}
     		
-    		width:54mm;
+    		#card_list>li{
+    			width:54mm;
     		height:90mm;
-    		align-items: center;
-    		border: 8px solid #5fbbdd;
-    		border-radius: 15px;
-    		background-color: #fff;
-    		
+    		align-items: center;    		
     		box-sizing: border-box;
     		position:relative;
     		display: inline-block;
-    margin: 1px;
-    		
-    	}
-    	.cardtext{
-    		color: #5fbbdd;
-    		font-size:24px;
-    		}
-    	.cardtitle{
-    		
-    		letter-spacing:3px;    		
-    		color:white;
-    font-size:14px;
-    float: right;
-    border: 1px dashed #eff8fb;
-    padding: 1px 3px; 
-    opacity: 92%;
-    		}
-    	
-    	.pic1{
-    		margin-top:70px;
-    		width: 130px;
-    height: 130px;
-    		}
-    		
-    		.top{
-    			padding-top: 2px;
-    			background-color:#5fbbdd;
-    			position: absolute;
-width: 100%;
-    height: 28px;
-    border-bottom: 5px #eff8fb double;
+    margin: 1px;    
+    border:none;
+    						background-image:url(img/lingumi/card_template.png);
+    						border-radius: 0px;
+    						background-repeat: no-repeat;
+  background-size: contain;
+  border:0.5px lightblue solid;
+      			}
+      			#card_list>li>.inner{
+      				opacity:1;
+      			}
     			
-    			}
-    			.qr{
-    				/*
-    				width:78px;
-    				height:78px;*/
-    				
-    				position: absolute;
-    bottom: 3px;
-    right: 8px;
+    			.pic{
+    				margin-top: 41px;
+    width: 118px;
+    height: 118px;
+    margin-left: -4px;
     				}
-    				.seticon{
-    					height:18px;
-    					float: left;
-    padding-left: 5px;
-    padding-top: 1px;
+    				
+    				.card_text{
+    					color: #5fbbdd;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: -3px;
+    margin-left: -4px;
     					}
+    					
+    					.item_class{
+    						font-weight: bold;
+    text-align: right;
+    margin-right: 9px;
+    font-size: 16px;
+    margin-top: 7px;
+    background-color: lightblue;
+    color: white;
+    border-radius: 3px;
+    padding: 0px 4px;
+    display: block;
+    width: fit-content;
+    right: 0;
+    position: absolute;
+    						}
+    						
+    						.qr img{
+    
+    margin: auto;
+    border: 10px white solid;
+    margin-top: 30px;
+    							
+    							}
+    			
+    			
+    			@media print{
+    				.noprint{
+    					display:none;
+    				}
+    				} 
     	</style>
+    	
 </head>
 <body>
-   <ul id="cardlist">
-  <li>
-  	<div class="top"><img src="img/lingumi/lingumi.png" class="seticon"/><div class="cardtitle">color</div></div>
-  	<img src="img/lingumi/pink.png" class="pic1"/>
-  	<div class="cardtext">pink</div>
-  	<img class="qr" src="img/lingumi/qr_pink.png" style="display:none;"/>
-  	<div class="qr" id="qrpink"></div>
-  	</li>
+	<div id="app">
+		<button v-on:click="addQR" class="noprint">add QR</button>
+	<ul id="card_list">
+
+		 <li v-for="(card,key_card) in cards">
+		 	<div class="inner">
+  	<div class="item_class">{{card.class}}</div>
+  	<img v-bind:src="card.pic" class="pic"/>
+  	<div class="card_text">{{card.text}}</div>
+  	<div class="qr"><div v-bind:id="'qr'+key_card"></div></div>
+</div>
+  	</li>  	
   
-   	</ul>
+		</ul>
+   </div>
+   <script src="js/card_preview.js"></script>
 </body>
 </html>
