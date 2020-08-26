@@ -61,27 +61,35 @@ var vm = new Vue({
       //await this.timeout(200)
 
       var lv_item = null;
-      //content={t:'ant',s:'l',k:0}
+      //content={"t":"ant","s":"l","k":"0"}
       this.isValid = false;// content.startsWith('http')
       try{
       	lv_item =  JSON.parse(content);
       	this.isValid = (lv_item.s=="l");// content.startsWith('http')
       	this.errorMessage = "vaild = "+this.isValid;
+      	
+      	if(this.isValid == true){
+      		this.errorMessage = "play https://sound-wall.s3-eu-west-1.amazonaws.com/en_"+lv_item.t+"_word.mp3";
+      		await playAudio("https://sound-wall.s3-eu-west-1.amazonaws.com/en_"+lv_item.t+"_word.mp3");
+      	}
       }catch(e){
       	this.errorMessage = e.toString();
       	console.log(e);
       }
-      
+      if(this.isValid == false)
+      {
+      	this.errorMessage = this.errorMessage + "<br/>不是lingumi閃卡";
+      }
 		  
       // some more delay, so users have time to read the message
       //await this.timeout(800)
-      if(this.isValid == true){
+      /*if(this.isValid == true){
       	this.errorMessage = "play https://sound-wall.s3-eu-west-1.amazonaws.com/en_"+lv_item.t+"_word.mp3";
       	await playAudio("https://sound-wall.s3-eu-west-1.amazonaws.com/en_"+lv_item.t+"_word.mp3");
       }else{
       	//this.errorMessage = "無效音效"
       	//呼叫無效音效
-      }     
+      } */    
 
       this.turnCameraOn();
       
