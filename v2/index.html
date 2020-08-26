@@ -6,7 +6,7 @@
     <title>Show Loading Indicator | Vue Qrcode Reader</title>
     <script  src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="Vjs/ueQrcodeReader.umd.min.js"></script>
+    <script src="js/VueQrcodeReader.umd.min.js"></script>
     <script src="js/card_source.js"></script>
     
     <style scoped>
@@ -69,7 +69,7 @@ function hidebox(box){
   <source src="https://sound-wall.s3-eu-west-1.amazonaws.com/en_pink_word.mp3" type="audio/mp3" id="music1" muted>
   </audio>
       
-  <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit" style="max-width:100vmin;max-height:100vmin;" >
+  <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit" style="width:300;" >
       <div v-if="validationSuccess" class="validation-success">
         This is a URL
       </div>
