@@ -115,8 +115,9 @@ var vm = new Vue({
 
 
   function  playAudio(i_key){
-    	var lv_path = 'https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + i_key + '_word.mp3';
-    	$("#music1").attr("src",lv_path);
+    	//var lv_path = 'https://sound-wall.s3-eu-west-1.amazonaws.com/en_' + i_key + '_word.mp3';
+    	
+    	$("#music1").attr("src",i_key);
     	$("#player")[0].load();
       $("#player")[0].play();
       $("#player")[0].pause();
