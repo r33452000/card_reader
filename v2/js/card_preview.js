@@ -11,7 +11,7 @@ var vm = new Vue({
   		
   			$.each(this.cards, function(key_card,card){
   				var lv_QR = new QRCode('qr'+key_card, {
-					    text: '{"s":"l","t":"'+card.text+'","k:"'+key_card+'"}',
+					    text: '{"s":"l","t":"'+card.text+'","k":"'+key_card+'"}',
 					    width: 80,
 					    height: 80,
 					    colorDark: '#000000',

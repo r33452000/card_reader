@@ -75,8 +75,10 @@ var vm = new Vue({
       // some more delay, so users have time to read the message
       //await this.timeout(800)
       if(this.isVaild){
+      	this.errorMessage = "play https://sound-wall.s3-eu-west-1.amazonaws.com/en_"+lv_item.t+"_word.mp3";
       	await playAudio("https://sound-wall.s3-eu-west-1.amazonaws.com/en_"+lv_item.t+"_word.mp3");
       }else{
+      	//this.errorMessage = "無效音效"
       	//呼叫無效音效
       }     
 
