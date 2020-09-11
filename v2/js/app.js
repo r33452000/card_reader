@@ -3,6 +3,10 @@ var vm = new Vue({
 
   data() {
     return {
+    	camera:'rear',
+    	noRearCamera:false,
+    	noFrontCamera:false,
+    	
     	cards:lv_data2,
       decodedContent: '',
       record:0,
@@ -31,10 +35,31 @@ var vm = new Vue({
   
    methods: {
 
-    onInit (promise) {
-      promise
+    async onInit (promise) {
+      try{
+      	
+      }catch(error){
+      	const triedFrontCamera = this.camera === 'front';
+      	const triedRearCamera = this.camera === 'rear';
+      	
+      	const cameraMissingError = error.name === 'OverconstrainedError';
+      	
+      	if(triedRearCamera && cameraMissingError){
+      		this.noRearCamera = true;
+      	}
+      	
+      	if(triedFrontCamera && cameraMissingError){
+      		this.noFrontCamera = true;
+      	}
+      	console.log(error);
+      	this.errorMessage = error.toString();
+      	resetValidationState();
+      }
+      
+      
+      /*promise
         .catch(console.error)
-        .then(this.resetValidationState)
+        .then(this.resetValidationState)*/
     },
 
     resetValidationState () {
@@ -89,7 +114,7 @@ var vm = new Vue({
       }else{
       	//this.errorMessage = "無效音效"
       	//呼叫無效音效
-      } */    
+      } */
 
       this.turnCameraOn();
       
@@ -102,6 +127,18 @@ var vm = new Vue({
 
     turnCameraOff () {
       this.camera = 'off'
+    },
+    
+    switchCamera(){
+    	switch(this.camera){
+    		case 'front':
+    			this.camera='rear';
+    			break;
+    			
+    		case 'rear':
+    			this.camera = 'front';
+    			break;
+    	}
     },
     
 

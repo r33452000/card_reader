@@ -10,6 +10,10 @@
     <script src="js/card_source.js"></script>
     
     <style scoped>
+    	.error{
+    		color:red;
+    		font-weight:bold;
+    	}
 .validation-success,
 .validation-failure,
 .validation-pending {
@@ -45,11 +49,13 @@ function hidebox(box){
 	}
 //-->
 </script>
+
   </head>
   <body>
   <!--聲音在手機是不會啟動的，必需和網頁先有互動才可以，但android會記憶頭一次互動而延用-->
   
   <button onclick="$('#player')[0].play();alert($('#music1').attr('src'));">載入聲音</button>
+  <button id="changeCamera" v-click="switchCamera">切換鏡頭</button>
   	<div id="app">
   <p>
     	 Last result: <b>{{ result }}, previous:{{lastContent}}</b>
@@ -68,14 +74,20 @@ function hidebox(box){
      <audio controls id="player" preload="auto">
   <source src="https://sound-wall.s3-eu-west-1.amazonaws.com/en_pink_word.mp3" type="audio/mp3" id="music1" >
   </audio>
+      <div v-if="noFrontCamera" class="error">
+        You don't seem to have a front camera on your device
+      </div>
+      <div v-if="noRearCamera" class="error">
+         You don't seem to have a rear camera on your device
+      </div>
       
-  <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit" style="width:300;" >
+  <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit" style="width:200;" >
       <div v-if="validationSuccess" class="validation-success">
-        This is a URL
+        這是有效卡片
       </div>
 
       <div v-if="validationFailure" class="validation-failure">
-        This is NOT a URL!
+        無法辨識的卡片
       </div>
 
       <div v-if="validationPending" class="validation-pending">
